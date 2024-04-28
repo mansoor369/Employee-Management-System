@@ -7,7 +7,7 @@ import cors from 'cors'
 const app = express();
 
 app.use(cors({
-    origin: 'https://employee-management-system-rho-ten.vercel.app/',  // Replace with the actual origin of your React app
+    origin: 'http://localhost:3000',  // Replace with the actual origin of your React app
     credentials: true,
   }))
 app.use(express.json());
@@ -130,7 +130,7 @@ router.get("/Get",get)
 router.get("/getone/:id",getone)
 router.put("/update/:id",update);
 router.delete("/delete/:id",Delete)
-mongoose.connect("mongodb+srv://mku-18-08-02:razerblade333R@mansoors-cluster.vuqudvm.mongodb.net/?retryWrites=true&w=majority&appName=Mansoors-Cluster").then(()=>{
+mongoose.connect("mongodb://127.0.0.1:27017/CRUD").then(()=>{
     console.log("DB Connected")
     app.listen(PORT,()=>{
         console.log(`Server is listening on PORT :${PORT}`);
